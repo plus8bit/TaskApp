@@ -5,22 +5,17 @@
 
       <div class="col-md-4">
 
-        <div class="card" style="width: 18rem;">
-        <%= image_tag('done1.png', class: "card-img-top") %>
-        <img class="card-img-top" src=".../100px180/" alt="Card image cap">
+        <div style="width: 18rem;">
+        <%= image_tag('done1.png', class: "card-img-top", style: "width: 9.37rem") %>
         <div class="card-body">
           <h5 class="card-title"><%= f.title %></h5>
-          <%= link_to "Done", user_todo_path(current_user, f), class: "btn btn-primary"%>
-          <%= link_to "Show", user_todo_path(current_user, f), class: "btn btn-primary"%>
+          <%= link_to "Done", user_todo_path(current_user, f), method: :delete, data: {confirm: "Are you sure? Delete this todo in your list?"}, class: "btn btn-success"%>
+          <%= link_to "Show", user_todo_path(current_user, f), class: "btn btn-warning"%>
         </div>
         </div>
 
       </div>
     <% end %>
-
-
-    <%= link_to "New Todo", new_user_todo_path(current_user, @todo) %>
-    <%= link_to "Sign Out", destroy_user_session_path, method: :delete %>
 
  </div>
 </div>

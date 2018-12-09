@@ -1,1 +1,18 @@
-<H1>This is show page</H1>
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 offset-3">
+      <div class="text-center">
+        <h4>
+          <%= @todo.title %>
+        </h4>
+        <br>
+        <hr>
+        <p class="lead">
+          Note: <%= @todo.description %>
+        </p>
+        <br>
+        <%= link_to "Back", user_todos_path(current_user), class: "btn btn-primary"%>
+      </div>
+    </div>
+  </div>
+</div>

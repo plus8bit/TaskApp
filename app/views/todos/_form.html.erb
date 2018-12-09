@@ -1,8 +1,23 @@
+<div class="container">
+  <div class='row'>
+    <div class="col-md-12">
 
-<%= form_with model: ([@user, @todo]) do |f| %>
+      <%= form_with model: ([@user, @todo]) do |f| %>
 
-  <%= f.text_field :title %>
-  <%= f.text_field :description %>
-  <%= f.submit %>
+        <div class="form-group">
+        <%= f.text_field :title, class: "form-control", placeholder: "Title" %>
+        </div>
 
-<% end %>
+        <div class="form-group">
+        <%= f.text_field :description, class: "form-control", placeholder: "Description" %>
+        </div>
+
+        <%= f.submit "Submit", class: "btn btn-success" %>
+        <%= link_to "Cancel", user_todos_path, class: "btn btn-danger" %>
+
+      <% end %>
+
+    </div>
+  </div>
+</div>
+
