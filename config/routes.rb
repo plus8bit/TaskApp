@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   
+  get 'home/front'
   get 'todos/index'
   get 'todos/new'
   get 'todos/edit'
