@@ -5,6 +5,7 @@
   <%= f.title %> <br>
   <%= f.description %><br>
   <%= f.user.email %><br>
+  <%= link_to "Delete", user_todo_path(current_user, f), method: :delete %>
 <% end %>
 
 

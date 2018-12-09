@@ -24,6 +24,14 @@ class TodosController < ApplicationController
     end
   end
 
+  def destroy
+    @user = User.find(params[:user_id])
+    @todo = @user.todos.find(params[:id])
+
+    @todo.destroy
+    redirect_to action: 'index'
+  end
+
   def edit
   end
 
