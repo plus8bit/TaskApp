@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   get 'todos/edit'
   devise_for :users
 
-  root 'todos#index'
+  root 'home#front'
 
   resources :users do
     resources :todos
