@@ -4,18 +4,15 @@ class TodosController < ApplicationController
   before_action :check_params
 
   def index
-    @user = User.find(params[:user_id])
-    @todos = @user.todos
+    @todos = user_params.todos
   end
 
   def new
-    @user = User.find(params[:user_id])
-    @todo = @user.todos.new
+    @todo = user_params.todos.new
   end
 
   def create
-    @user = User.find(params[:user_id])
-    @todo = @user.todos.create(params.require(:todo).permit(:title, :description))
+    @todo = user_params.todos.create(params.require(:todo).permit(:title, :description))
 
     if @todo.save
       redirect_to action:'index'
@@ -25,8 +22,7 @@ class TodosController < ApplicationController
   end
 
   def destroy
-    @user = User.find(params[:user_id])
-    @todo = @user.todos.find(params[:id])
+    @todo = user_params.todos.find(params[:id])
 
     @todo.destroy
     redirect_to action: 'index'
@@ -36,8 +32,7 @@ class TodosController < ApplicationController
   end
 
   def show
-    @user = User.find(params[:user_id])
-    @todo = @user.todos.find(params[:id])    
+    @todo = user_params.todos.find(params[:id])    
   end
 
 
@@ -47,6 +42,10 @@ class TodosController < ApplicationController
     if current_user != User.find(params[:user_id])
     redirect_to root_path
     end
+  end
+
+  def user_params
+    @user = User.find(params[:user_id])
   end
 
 
